@@ -1,3 +1,6 @@
+//función flecha buscar producto en colección productos
+const buscarProducto = id => productos.find(p => p.id === id);
+
 function demoVar() {
     var sinDeclarar;
     console.log(sinDeclarar === undefined ? "sinDeclarar es undefined" : "declarada");
@@ -5,6 +8,7 @@ function demoVar() {
 }
 demoVar();
 
+let carrito = []; //
 
 
 {
@@ -98,6 +102,7 @@ console.log(precioConIVA(10));
 console.log(precioConIVA(10, 0.10));
 
 //catálogo
+
 const productos = [
 
     { id: 1, nombre: "Pienso para cabras", tipo: "cabras", precio: 12.99 },
@@ -156,19 +161,6 @@ console.log(suma ( x , m));
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 const catalogo = document.querySelector("#gridProductos");
 
 for (const p of productos){
@@ -179,9 +171,47 @@ for (const p of productos){
             <p>Tipo: ${p.tipo}</p>
             <p class="price">${aEuros(p.precio)}</p>
             <button class="btn" data-id="${p.id}">Añadir</button>       
-            `;
-            
+            `;            
             catalogo.appendChild(card);
+}
+
+function agregar(idProducto){
+
+    
+    const p = buscarProducto(idProducto);
+    if (!p) return;
+
+    const linea = carrito.find(l => l.id === idProducto);
+
+    if (linea){
+
+        linea.cantidad += 1;
+        linea.subtotal = +(linea.cantidad * p.precio).toFixed(2);
+    }else{
+       carrito.push({  id: p.id, nombre: p.nombre, cantidad: 1, subtotal: +p.precio.toFixed(2)});
+    }
+
+
+   dibujarCarrito(carrito);
+
+
+}
+
+function dibujarCarrito(lineas = []){
+
+    const ulCarrito = document.querySelector("#listaCarrito");
+    const txtTotal  = document.querySelector("#txtTotal");
+    const txtUds = document.querySelector("#txtUnidades");
+
+    //limpiar el carrito
+
+    //reccorrer el vector carrito 
+    //para cada linea componer ulcarrito
+
+    //actualizar total y unidades
+    //dos variables nuevas
+
+
 }
 
 
