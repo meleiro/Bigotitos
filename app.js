@@ -175,6 +175,19 @@ for (const p of productos){
             catalogo.appendChild(card);
 }
 
+const grid = document.querySelector("#gridProductos");
+
+grid.addEventListener("click", (ev) =>{
+
+    const btn = ev.target.closest('button[data-id]');
+    //comprobar que el botón
+    //capturar en una variable el id de produto
+    //agregar(id)
+
+
+});
+
+
 function agregar(idProducto){
 
     
@@ -204,13 +217,34 @@ function dibujarCarrito(lineas = []){
     const txtUds = document.querySelector("#txtUnidades");
 
     //limpiar el carrito
+ 
+    ulCarrito.innerHTML = "";
+    let tUnidades = 0;
+    let tImporte = 0;
+
+
 
     //reccorrer el vector carrito 
+
+
+    for (const l of lineas) {
+
+       const li =document.createElement("li");
+       li.textContent = ` ${l.nombre} - ${l.cantidad} uds - ${aEuros(l.subtotal)}`;
+       ulCarrito.appendChild(li);
+
+       tUnidades += l.cantidad;
+       tImporte += l.subtotal; 
+
+    }
+
     //para cada linea componer ulcarrito
 
     //actualizar total y unidades
     //dos variables nuevas
 
+    txtUds.textContent = `${tUnidades} ud`;
+    txtTotal.textContent = aEuros(precioConIVA(tImporte));
 
 }
 
