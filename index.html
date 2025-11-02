@@ -1,47 +1,120 @@
 <!DOCTYPE html>
+<!-- Indica que el documento usa HTML5. 
+     Permite al navegador interpretar correctamente las etiquetas modernas. -->
+
 <html lang="es">
+<!-- Elemento raíz del documento HTML.
+     El atributo lang="es" indica que el contenido está en español, 
+     lo cual ayuda a buscadores y lectores de pantalla. -->
+
 <head>
+  <!-- Cabecera del documento: contiene metadatos y enlaces a recursos externos. -->
+
   <meta charset="UTF-8" />
+  <!-- Define la codificación de caracteres (UTF-8), 
+       necesaria para que se muestren correctamente tildes, eñes y símbolos. -->
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bigotitos -  Tienda de comida para animales</title>
+  <!-- Hace que la página sea responsive, adaptando el contenido al tamaño del dispositivo. -->
+
+  <title>Bigotitos - Tienda de comida para animales</title>
+  <!-- Título que aparece en la pestaña del navegador o en los resultados de búsqueda. -->
+
   <link rel="stylesheet" href="styles.css">
+  <!-- Vincula una hoja de estilo externa (CSS) para aplicar diseño visual a la página. -->
 </head>
+
 <body>
+  <!-- Todo el contenido visible del sitio se encuentra dentro del <body>. -->
+
   <header class="topbar">
+    <!-- <header> representa la cabecera de la página. 
+         Aquí contiene el título principal y el menú (en este caso, dos botones). -->
+
     <h1>Bigotitos</h1>
+    <!-- <h1> es el título principal del sitio o marca. 
+         "Bigotitos" sería el nombre de la tienda. -->
+
     <nav>
+      <!-- <nav> representa la zona de navegación del sitio o de la cabecera. -->
+
       <button id="btnSaludo" class="btn">Saludar</button>
+      <!-- Botón con id="btnSaludo" que probablemente ejecutará una acción (por ejemplo, mostrar un mensaje)
+           desde el archivo JavaScript app.js. -->
+
       <button id="btnVaciar" class="btn btn-secondary">Vaciar carrito</button>
+      <!-- Botón con id="btnVaciar" que seguramente vacía el contenido del carrito. 
+           class="btn btn-secondary" sugiere que hay distintos estilos definidos en CSS. -->
     </nav>
   </header>
 
   <main class="container">
+    <!-- <main> contiene el contenido principal del documento. 
+         Solo debe haber un <main> por página. 
+         class="container" suele usarse para centrar o limitar el ancho del contenido en CSS. -->
+
     <section class="hero card">
+      <!-- <section> define un bloque de contenido temático. 
+           class="hero card" indica que esta sección tiene aspecto destacado (hero = cabecera visual). -->
+
       <h2>Comida sana para tus animales</h2>
+      <!-- Título de segundo nivel que describe la sección. -->
+
       <p>Piensos, snackddds y latas con ingredientes de calidad.</p>
+      <!-- Párrafo descriptivo sobre la oferta del sitio. -->
+
       <p class="note">Si la pruebas, no querrás más comida para humanos</p>
+      <!-- Párrafo adicional con un tono humorístico. 
+           class="note" permite aplicar un estilo especial en CSS (por ejemplo, color o tamaño de fuente). -->
     </section>
 
     <section class="card">
+      <!-- Segunda sección, dedicada a mostrar los productos disponibles. -->
+
       <h3>Productos</h3>
+      <!-- Título de la sección. -->
+
       <div id="gridProductos" class="grid"></div>
+      <!-- Contenedor vacío donde el JavaScript (app.js) 
+           generará dinámicamente las tarjetas de productos.
+           class="grid" indica que se usará un diseño en cuadrícula mediante CSS. -->
     </section>
 
     <section class="card">
+      <!-- Tercera sección: el carrito de la compra. -->
+
       <h3>Carrito</h3>
+      <!-- Título de la sección del carrito. -->
+
       <ul id="listaCarrito" class="list"></ul>
+      <!-- Lista desordenada (<ul>) vacía donde se añadirán los productos 
+           seleccionados mediante JavaScript. -->
+
       <div class="cart-summary">
+        <!-- Bloque resumen del carrito: muestra unidades totales y el importe. -->
+
         <span id="txtUnidades">0 ud</span>
+        <!-- <span> muestra el número total de unidades en el carrito. 
+             Se actualiza dinámicamente desde el script. -->
+
         <strong id="txtTotal">0.00 €</strong>
+        <!-- <strong> resalta el total a pagar. También se actualizará por JavaScript. -->
       </div>
     </section>
   </main>
 
   <footer class="footer">
+    <!-- <footer> representa el pie de página del documento. 
+         Aquí se incluye información secundaria. -->
+
     <small> Bigotitos · Comida sobrosa</small>
+    <!-- <small> indica información secundaria o aclaratoria (tamaño de texto menor). -->
   </footer>
 
   <script src="app.js"></script>
+  <!-- Vincula el archivo de JavaScript que añade funcionalidad a la página.
+       Aquí se programarán las acciones de los botones, 
+       el llenado del carrito y la generación de productos. -->
 
 </body>
 </html>
